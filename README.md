@@ -11,3 +11,13 @@
 }
 
 ```
+
+
+## versionの違い
+ドキュメントをみればわかるが、頻繁にバージョンが変化している。
+ver0.47には`index.ios.js`が含まれているが、新しいバージョンは`App.js(コンポーネントの一部
+  )`で,`index.ios.js`に相当する部分は`index.js`なので注意！
+それ以外は普通にビルドすれば行けると思われる。
+
+## component作成
+ディレクトリ直下に`src/components/header.js(headerの場合)`という風に作っていく、それを`index.js`に`import Header from './src/components/header';`という形で読み込む
