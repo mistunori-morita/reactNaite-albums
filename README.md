@@ -21,3 +21,29 @@ ver0.47には`index.ios.js`が含まれているが、新しいバージョン�
 
 ## component作成
 ディレクトリ直下に`src/components/header.js(headerの場合)`という風に作っていく、それを`index.js`に`import Header from './src/components/header';`という形で読み込む
+
+
+
+## style 例
+```
+// Improt libraries for maiking a components
+import React from 'react';
+import { Text } from 'react-native';
+
+
+//Make a component
+const Header = () => {
+  const { textStyle } = styles;
+  return <Text style={textStyle}>Albums!</Text>;
+};
+
+const styles = {
+  textStyle:{
+    fontSize: 20
+  }
+};
+// Make the component available to other parts of the App
+export default Header;
+
+
+```
