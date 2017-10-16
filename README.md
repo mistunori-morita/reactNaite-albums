@@ -47,7 +47,7 @@ export default Header;
 
 
 ```
-
+#### flex-box例
 ```flex-box
 // Improt libraries for maiking a components
 import React from 'react';
