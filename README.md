@@ -80,3 +80,27 @@ const styles = {
 export default Header;
 
 ```
+
+#### class component
+
+```
+↓ ,{ Component } これが追加されて
+import React ,{ Component } from 'react';
+import { View, Text } from 'react-native';
+
+↓　classで記載していく
+class AlbumList extends Component {
+ //render(){ } を使う
+ render(){
+  return (
+    <View>
+      <Text>Alubum List !!!</Text>
+    </View>
+  );
+ }
+}
+
+export default AlbumList;
+
+
+```
