@@ -2,7 +2,12 @@ import React ,{ Component } from 'react';
 import { View, Text } from 'react-native';
 
 class AlbumList extends Component {
-  render(){
+  componentWillMount() {
+    console.log('componentWillMount in AlbumList');
+  }
+
+
+ render() {
   return (
     <View>
       <Text>Alubum List !!!</Text>
