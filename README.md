@@ -83,7 +83,7 @@ export default Header;
 
 #### class component
 
-```
+```javascript
 ↓ ,{ Component } これが追加されて
 import React ,{ Component } from 'react';
 import { View, Text } from 'react-native';
@@ -118,7 +118,7 @@ You can access the developer menu by shaking your device or by selecting "Shake 
 
 ### npm install --save axiosをインストール
 - ターミナルで`npm install --save axios`をインストール
-```
+```javascript
 import React ,{ Component } from 'react';
 import { View, Text } from 'react-native';
 import axios from 'axios'; //追記
@@ -144,3 +144,34 @@ export default AlbumList;
 
 ```
 - デバッカーにapi情報が表示されていればひとまずOK
+
+
+### ajax設定
+```javascript
+import React ,{ Component } from 'react';
+import { View, Text } from 'react-native';
+import axios from 'axios';
+
+class AlbumList extends Component {
+  //初期化
+  state = { albums:[] }; //追記
+
+
+  componentWillMount() {
+    axios.get('https://rallycoding.herokuapp.com/api/music_albums')
+    .then(response => this.setState({ albums: response.dta })); //編集
+  }
+
+
+ render() {
+  return (
+    <View>
+      <Text>Alubum List !!!</Text>
+    </View>
+  );
+ }
+}
+
+export default AlbumList;
+
+```
