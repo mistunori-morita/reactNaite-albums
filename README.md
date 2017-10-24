@@ -118,3 +118,29 @@ You can access the developer menu by shaking your device or by selecting "Shake 
 
 ### npm install --save axiosをインストール
 - ターミナルで`npm install --save axios`をインストール
+```
+import React ,{ Component } from 'react';
+import { View, Text } from 'react-native';
+import axios from 'axios'; //追記
+
+class AlbumList extends Component {
+  componentWillMount() {
+    //ここでapiの取得を行っている
+    axios.get('https://rallycoding.herokuapp.com/api/music_albums')
+    .then(response => console.log(response));
+  }
+
+
+ render() {
+  return (
+    <View>
+      <Text>Alubum List !!!</Text>
+    </View>
+  );
+ }
+}
+
+export default AlbumList;
+
+```
+- デバッカーにapi情報が表示されていればひとまずOK
