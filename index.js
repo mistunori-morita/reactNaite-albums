@@ -5,10 +5,10 @@ import AlbumList from './src/components/AlbumList';
 // import App from './App';
 
 const App = () => (
- <View>
-    <Header headerText={'Albums'}/>
-    <AlbumList />
- </View>
+   <View>
+      <Header headerText={'Albums'}/>
+      <AlbumList />
+   </View>
 );
 
 
