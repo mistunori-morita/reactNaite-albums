@@ -104,3 +104,17 @@ export default AlbumList;
 
 
 ```
+
+
+### componentWillMount実行時の注意
+```
+Accessing the In-App Developer Menu
+You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the ⌘D keyboard shortcut when your app is running in the iOS Simulator, or ⌘M when running in an Android emulator.
+
+```
+
+- つまり⌘Dを押してビルドしないとだめ、http://localhost:8081/debugger-uiとかにダイレクトで言っても意味がないので注意！
+
+
+### npm install --save axiosをインストール
+- ターミナルで`npm install --save axios`をインストール
