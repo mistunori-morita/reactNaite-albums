@@ -270,3 +270,58 @@ const AlbumDetail = (props) => {
 
 これでリロードして表示されていればAlbumDetailの作成に成功している
 ```
+
+
+### 再使用可能コンポーネント　カードスタイル作成
+- src/components/Card.jsを作成
+
+```javascript
+//card.js　最初の設定
+import React from 'react';
+import { View } from 'react-native';
+
+const Card = () => {
+  return (
+    <View></View>
+  );
+};
+
+export default Card;
+
+```
+
+- Card.jsの作り込み
+
+```javascript
+//styleing
+import React from 'react';
+import { View } from 'react-native';
+
+const Card = () => {
+  return (
+    //styleの付与
+    <View style={styles.containerStyle}></View>
+  );
+};
+
+//stylesの定義
+const styles = {
+  containerStyle: {
+    borderWidth: 1,
+    borderRadius: 2,
+    borderColor: 'ddd',
+    borderBotomWidth: 0,
+    shadowcolor: '#000',
+    shadowOffset: { width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 1,
+    marginLeft: 5,
+    marginRight: 5,
+    marginTop: 10
+  }
+};
+
+export default Card;
+
+```
