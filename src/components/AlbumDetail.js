@@ -8,11 +8,21 @@ const AlbumDetail = (props) => {
   return(
     <Card>
       <CardSection>
-        <Text>{props.album.title}</Text>
+        <View></View>
+        <View style={styles.haederContentStyle}>
+          <Text>{props.album.title}</Text>
+          <Text>{props.album.artist}</Text>
+        </View>
       </CardSection>
     </Card>
   );
 };
 
+const styles = {
+  haederContentStyle: {
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  }
+};
 
 export default AlbumDetail;

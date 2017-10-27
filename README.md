@@ -416,3 +416,45 @@ export default AlbumDetail;
 
 これで問題なければシュミレーターを起動したらcssが適用されている
 ```
+
+## コンポーネントのレイアウト処理
+### flexboxによるレイアウト
+- headerスタイリング
+
+```javascript
+
+//AlbumDetail
+
+import React from 'react';
+import { View, Text } from 'react-native';
+import Card from './Card';
+import CardSection from './CardSection';
+
+
+const AlbumDetail = (props) => {
+  return(
+    <Card>
+      <CardSection>
+        <View></View>
+        //viewにスタイルを追加
+        <View style={styles.haederContentStyle}>
+          <Text>{props.album.title}</Text>
+          <Text>{props.album.artist}</Text>
+        </View>
+      </CardSection>
+    </Card>
+  );
+};
+
+//スタイルを定義
+const styles = {
+  haederContentStyle: {
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  }
+};
+
+export default AlbumDetail;
+
+
+```
