@@ -325,3 +325,37 @@ const styles = {
 export default Card;
 
 ```
+
+- Card.js component propsを渡す
+
+```javascript
+//AlbumDetailの編集　先程作ったcardのスタイルを適用させる（ざっくりいえば）
+import React from 'react';
+import { View, Text } from 'react-native';
+import Card from './Card';
+
+
+const AlbumDetail = (props) => {
+  return(
+    <Card>
+      <Text>{props.album.title}</Text>
+    </Card>
+  );
+};
+
+
+export default AlbumDetail;
+
+//Card.jsの編集
+//propsを受け取って、渡す
+const Card = (props) => {
+  return (
+    <View style={styles.containerStyle}>
+    //ココ追記
+      {props.children}
+    </View>
+  );
+};
+
+これができるとapiの取得した各値にスタイルが追加されて、囲まれて見えるようになる
+```
