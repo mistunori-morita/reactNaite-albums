@@ -458,3 +458,58 @@ export default AlbumDetail;
 
 
 ```
+
+- header image追加
+
+```javascript
+//AlubumDetail import修正
+import { View, Text, Image } from 'react-native';
+
+//propsを albumにし、その下のconstで指定すると
+//props.album.xxxという書き方をしなくてもスッキリとかける
+const AlbumDetail = ({ album }) => {
+  const { title, artist, thumbnail_image } = album;
+  return(
+    <Card>
+      <CardSection>
+        <View>
+          <Image
+            style={styles.thumbnailStyle}
+            source={{ url: thumbnail_image }}
+          />
+        </View>
+        <View style={styles.haederContentStyle}>
+          <Text>{title}</Text>
+          <Text>{artist}</Text>
+        </View>
+      </CardSection>
+    </Card>
+  );
+};
+
+//image部分のスタイルを追加することで画像が出て来る
+const styles = {
+  haederContentStyle: {
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  },
+  //追加
+  thumbnailStyle: {
+    height: 50,
+    width: 50
+  }
+};
+
+export default AlbumDetail;
+
+この時点で問題なければthumbnailが表示されている
+
+
+//styleの省略　このように書くことで
+// {styles.haederContentStyle}>ではなく
+const { thumbnailStyle, haederContentStyle } = styles;
+
+<View style={haederContentStyle}>
+
+このようにして省略して書くことができる
+```

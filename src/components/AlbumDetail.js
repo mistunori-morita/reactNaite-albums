@@ -1,17 +1,25 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 
 
-const AlbumDetail = (props) => {
+const AlbumDetail = ({ album }) => {
+  const { title, artist, thumbnail_image } = album;
+  const { thumbnailStyle, haederContentStyle } = styles;
+
   return(
     <Card>
       <CardSection>
-        <View></View>
-        <View style={styles.haederContentStyle}>
-          <Text>{props.album.title}</Text>
-          <Text>{props.album.artist}</Text>
+        <View>
+          <Image
+            style={thumbnailStyle}
+            source={{ url: thumbnail_image }}
+          />
+        </View>
+        <View style={haederContentStyle}>
+          <Text>{title}</Text>
+          <Text>{artist}</Text>
         </View>
       </CardSection>
     </Card>
@@ -22,6 +30,10 @@ const styles = {
   haederContentStyle: {
     flexDirection: 'column',
     justifyContent: 'space-around'
+  },
+  thumbnailStyle: {
+    height: 50,
+    width: 50
   }
 };
 
