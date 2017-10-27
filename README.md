@@ -320,7 +320,7 @@ const styles = {
     marginRight: 5,
     marginTop: 10
   }
-};
+};s
 
 export default Card;
 
@@ -358,4 +358,61 @@ const Card = (props) => {
 };
 
 これができるとapiの取得した各値にスタイルが追加されて、囲まれて見えるようになる
+```
+
+- カードをセクションに分ける
+- src/components/CardSection.jsを作成
+```javascript
+//CardSection
+import React from 'react';
+import { View } from 'react-native';
+
+
+const CardSection = (props) => {
+  return(
+    <View style={styles.containerStyle}>
+      {props.children}
+    </View>
+  );
+};
+//ここのconst stylesの名前を使って  <View style={styles.containerStyle}>のstylesと紐付いている
+const styles = {
+  containerStyle: {
+      borderBotomWidth: 1,
+      padding: 5,
+      backgroundColor: '#fff',
+      justifyContent: 'flex-start',
+      flexDirection: 'row',
+      borderColor: '#ddd',
+      position: 'relative'
+  }
+};
+
+export default CardSection;
+
+
+
+//AlbumDetailに作成したCardSectionをimport
+import React from 'react';
+import { View, Text } from 'react-native';
+import Card from './Card';
+//作成したCardSectionを読み込み
+import CardSection from './CardSection';
+
+
+const AlbumDetail = (props) => {
+  return(
+    <Card>
+    //CardSectionでwrapする
+      <CardSection>
+        <Text>{props.album.title}</Text>
+      </CardSection>
+    </Card>
+  );
+};
+
+
+export default AlbumDetail;
+
+これで問題なければシュミレーターを起動したらcssが適用されている
 ```
