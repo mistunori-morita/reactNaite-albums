@@ -217,3 +217,56 @@ export default AlbumList;
 
 
 ```
+
+### 個別のデータを取得 AlbumDetail.jsの作成
+
+```javascript
+
+//AlbumList.js
+//変更
+renderAlbums() {
+  return this.state.albums.map(album =>
+    <Text key={album.title}>{album.title}</Text>
+  );
+}
+
+その後,componentsフォルダにAlbumDetail.jsを作成
+
+//AlbumDetail
+import React from 'react';
+import { View, Text } from 'react-native';
+
+const AlbumDetail = () => {
+
+};
+
+
+export default AlbumDetail;
+
+//AlbumListに作成したAlbumDetailをimport
+import AlbumDetail from './AlbumDetail';
+
+```
+
+```javascript
+
+//AlbumList ここを編集
+import { View } from 'react-native';
+
+  renderAlbums() {
+    return this.state.albums.map(album =>
+      <AlbumDetail key={album.title} album={album}/>
+    );
+  }
+
+//AlbumDetail
+const AlbumDetail = (props) => {
+  return(
+    <View>
+      <Text>{props.album.title}</Text>
+    </View>
+  );
+};
+
+これでリロードして表示されていればAlbumDetailの作成に成功している
+```
