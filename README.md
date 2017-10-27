@@ -513,3 +513,134 @@ const { thumbnailStyle, haederContentStyle } = styles;
 
 このようにして省略して書くことができる
 ```
+
+- アルバム・ジャケット表示(apiデータのthumbnail)/style調整
+
+```javascript
+
+//AlubumDetail
+const AlbumDetail = ({ album }) => {
+  const { title, artist, thumbnail_image } = album;
+  const {
+    //追加したstyleを記述
+    thumbnailStyle,
+    haederContentStyle,
+    thumbnailContainerStyle,
+    headerTextStyle
+  } = styles;
+
+  return(
+    <Card>
+      <CardSection>
+        <View style={thumbnailContainerStyle}>
+          <Image
+            style={thumbnailStyle}
+            source={{ url: thumbnail_image }}
+          />
+        </View>
+        <View style={haederContentStyle}>
+          <Text style={headerTextStyle}>{title}</Text>
+          <Text>{artist}</Text>
+        </View>
+      </CardSection>
+    </Card>
+  );
+};
+
+//styleを追記
+const styles = {
+  haederContentStyle: {
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  },
+  headerTextStyle: {
+    fontSize: 18
+  },
+  thumbnailStyle: {
+    height: 50,
+    width: 50
+  },
+  thumbnailContainerStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
+    marginRight: 10
+  }
+};
+
+//thumbnailイメージ追加
+//image　を追記
+const { title, artist, thumbnail_image ,image} = album;
+
+  return(
+    <Card>
+      <CardSection>
+        <View style={thumbnailContainerStyle}>
+          <Image
+            style={thumbnailStyle}
+            source={{ url: thumbnail_image }}
+          />
+        </View>
+        <View style={haederContentStyle}>
+          <Text style={headerTextStyle}>{title}</Text>
+          <Text>{artist}</Text>
+        </View>
+      </CardSection>
+      //追加
+      <CardSection>
+        <Image source={{ uri: image}} />
+      </CardSection>
+    </Card>
+  );
+};
+
+
+
+
+//styleを追加
+const styles = {
+  haederContentStyle: {
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  },
+  headerTextStyle: {
+    fontSize: 18
+  },
+  thumbnailStyle: {
+    height: 50,
+    width: 50
+  },
+  thumbnailContainerStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
+    marginRight: 10
+  },
+  imageStyle: {
+    height: 300,
+    flex: 1,
+    width: null
+  }
+};
+
+//styleの宣言
+const {
+  thumbnailStyle,
+  haederContentStyle,
+  thumbnailContainerStyle,
+  headerTextStyle,
+  //これが追加
+  imageStyle
+} = styles;
+
+//style呼び出し
+<CardSection>
+  <Image
+  //ここで呼び出し
+  style={imageStyle}
+    source={{ uri: image }}
+  />
+</CardSection>
+
+問題がなければジャケット写真が表示されている
+```
