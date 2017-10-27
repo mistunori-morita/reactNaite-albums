@@ -329,7 +329,7 @@ export default Card;
 - Card.js component propsを渡す
 
 ```javascript
-//AlbumDetailの編集　先程作ったcardのスタイルを適用させる（ざっくりいえば）
+//AlbumDetailの編集　先程作ったcardのスタイルを適用させる（ざっくりいえば外枠フレーム的な感じ）
 import React from 'react';
 import { View, Text } from 'react-native';
 import Card from './Card';
