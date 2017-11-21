@@ -791,3 +791,37 @@ const Button = () => {
 
 これでできているとボタンが作成されている
 ```
+
+## ユーザー入力のイベント設定
+- イベントの設定
+```js
+//onPressを設定したら,comand+Dでリモートデバッカーを起動しないとみれないので注意！
+<TouchableOpacity onPress={() => console.log('pressed!')} style={buttonStyle}>
+
+まずこれでイベントを設定してみれることを確認
+
+//AlubumDetail
+<CardSection>
+  <Button onPress={ () => console.log(title)}/>
+</CardSection>
+
+//Button.js
+
+//onPressを渡して
+const Button = ({ onPress }) => {
+  const { buttonStyle, textStyle } = styles;
+  return (
+    //ここでonPressに設定
+    <TouchableOpacity onPress={onPress} style={buttonStyle}>
+      <Text style={textStyle}>
+        Click me!!!
+      </Text>
+    </TouchableOpacity>
+  );
+};
+
+これができると、AlubumDetailでtitleをコンソールログするようにしているので、タイトルが表示されるようになる
+
+
+```
+## モバイルアプリ間のリンク
