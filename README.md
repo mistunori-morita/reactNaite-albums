@@ -644,3 +644,29 @@ const {
 
 問題がなければジャケット写真が表示されている
 ```
+
+## コンテンツをスクロール
+- AlbumList.js
+
+```js
+import { ScrollView } from 'react-native';
+に変更
+
+//Viewの部分ScrollViewに変更
+return (
+  <ScrollView>
+    {this.renderAlbums()}
+  </ScrollView>
+);
+
+//index.js
+
+const App = () => (
+  //style flex 1を追記
+   <View style={{ flex: 1}}>
+      <Header headerText={'Albums'}/>
+      <AlbumList />
+   </View>
+);
+
+```
