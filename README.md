@@ -670,3 +670,58 @@ const App = () => (
 );
 
 ```
+
+## ボタンでユーザー入力の処理
+- src/components/Button.jsを作成
+```js
+//Button.js
+
+//まず雛形となるButtonコンポーネントを作成
+import React from 'react';
+import { Text } from 'react-native';
+
+const Button = () => {
+  return (
+      <Text>Click me!!!</Text>
+  );
+};
+
+//ここでdefaultできてないと読込先でエラーになる
+export default Button;
+
+
+//この状態でAlbumDetailにimport
+import Button from './Button';
+
+//AlbumDetailに
+<CardSection>
+  <Button />
+</CardSection>
+を追記してシュミレーターをリロードするとボタンが追加されている
+
+```
+### ReactNativeのドキュメントを見てボタンを設定
+- 先ほどの状態だとButtonコンポーネントを作成しただけで特に変化がないのReactNativeのコンポーネントを使う
+- TouchableOpacityの設定
+
+```js
+//Button.jsに追記
+
+import React from 'react';
+//TouchableOpacityを読み込む
+import { Text, TouchableOpacity } from 'react-native';
+
+const Button = () => {
+  return (
+    //TouchableOpacityでラップする
+    <TouchableOpacity>
+      <Text>Click me!!!</Text>
+    </TouchableOpacity>
+  );
+};
+
+export default Button;
+
+
+
+```
