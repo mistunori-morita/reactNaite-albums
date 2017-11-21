@@ -824,4 +824,51 @@ const Button = ({ onPress }) => {
 
 
 ```
-## モバイルアプリ間のリンク
+## モバイルアプリ間のリンク(つまり簡単に言えばアンカーリンク)
+- ReactNativeドキュメントlinking
+- https://facebook.github.io/react-native/docs/linking.html
+
+```js
+//AlubumDetail
+//Linkingをimport
+import { View, Text, Image, Linking } from 'react-native';
+
+//urlをimport
+const AlbumDetail = ({ album }) => {
+  //urlここで
+  const { title, artist, thumbnail_image ,image, url} = album;
+
+  <CardSection>
+  //console.logの場所を決してLinking.openURL(url) に書き換える
+    <Button onPress={ () => Linking.openURL(url) }/>
+  </CardSection>
+
+
+```
+## ボタンテキストをpropsで再設定
+- Button.jsを修正
+- AlbumDetailを修正
+```js
+//AlubumDetail
+<CardSection>
+  //Buttonコンポーネントでラップし、その中に表示させたいものを記述
+  <Button onPress={ () => Linking.openURL(url)}>
+    Buy Now
+  </Button>
+</CardSection>
+
+//button.js
+//childrenで受け取れるように設定する
+const Button = ({ onPress, children }) => {
+  const { buttonStyle, textStyle } = styles;
+  return (
+    <TouchableOpacity onPress={onPress} style={buttonStyle}>
+      <Text style={textStyle}>
+      //表示させたいところでchildrenを書くことで、今回だとAlubumDetaildに記述したBuy Nowが表示される
+        {children}
+      </Text>
+    </TouchableOpacity>
+  );
+};
+
+```
